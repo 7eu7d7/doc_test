@@ -20,20 +20,12 @@ sys.path.insert(0, os.path.abspath('../..'))
 
 # -- Project information -----------------------------------------------------
 
-project = 'MMDetection'
-copyright = '2018-2021, OpenMMLab'
+project = 'HCP-Diffusion'
+copyright = '2018-2021, HCP Lab'
 author = 'MMDetection Authors'
-version_file = '../../mmdet/version.py'
-
-
-def get_version():
-    with open(version_file, 'r') as f:
-        exec(compile(f.read(), version_file, 'exec'))
-    return locals()['__version__']
-
 
 # The full version, including alpha/beta/rc tags
-release = get_version()
+release = '0.1.0'
 
 # -- General configuration ---------------------------------------------------
 
@@ -53,7 +45,7 @@ myst_enable_extensions = ['colon_fence']
 myst_heading_anchors = 3
 
 autodoc_mock_imports = [
-    'matplotlib', 'pycocotools', 'terminaltables', 'mmdet.version', 'mmcv.ops'
+    'matplotlib',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -106,11 +98,3 @@ html_css_files = ['css/readthedocs.css']
 # Ignore >>> when copying code
 copybutton_prompt_text = r'>>> |\.\.\. '
 copybutton_prompt_is_regexp = True
-
-
-def builder_inited_handler(app):
-    subprocess.run(['./stat.py'])
-
-
-def setup(app):
-    app.connect('builder-inited', builder_inited_handler)
