@@ -78,9 +78,30 @@ html_theme_path = [pytorch_sphinx_theme.get_html_theme_path()]
 
 html_theme_options = {
     'menu': [
+        # A link
         {
             'name': 'GitHub',
-            'url': 'https://github.com/open-mmlab/mmdetection'
+            'url': 'https://github.com/7eu7d7/HCP-Diffusion/'
+        },
+        # A dropdown menu
+        {
+            'name': 'Projects',
+            'children': [
+                # A vanilla dropdown item
+                {
+                    'name': 'HCP-Diffusion/',
+                    'url': 'https://github.com/7eu7d7/HCP-Diffusion/',
+                },
+                # A dropdown item with a description
+                {
+                    'name': 'HCP-Diffusion/-webui',
+                    'url': 'https://github.com/7eu7d7/HCP-Diffusion-webui/',
+                    'description': 'webui for HCP-Diffusion'
+                },
+            ],
+            # Optional, determining whether this dropdown menu will always be
+            # highlighted.
+            'active': True,
         },
     ],
     # Specify the language of shared menu
