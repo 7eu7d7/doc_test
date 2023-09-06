@@ -14,7 +14,7 @@ import os
 import subprocess
 import sys
 
-import pytorch_sphinx_theme
+import furo
 
 sys.path.insert(0, os.path.abspath('../../'))
 
@@ -73,8 +73,7 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 # a list of builtin themes.
 #
 # html_theme = 'sphinx_rtd_theme'
-html_theme = 'pytorch_sphinx_theme'
-html_theme_path = [pytorch_sphinx_theme.get_html_theme_path()]
+html_theme = 'furo'
 
 html_theme_options = {
     'menu': [
