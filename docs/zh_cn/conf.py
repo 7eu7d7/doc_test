@@ -22,7 +22,7 @@ sys.path.insert(0, os.path.abspath('../../'))
 
 project = 'HCP-Diffusion'
 copyright = '2018-2021, HCP Lab'
-author = 'MMDetection Authors'
+author = '7eu7d7'
 
 # The full version, including alpha/beta/rc tags
 release = '0.1.0'
