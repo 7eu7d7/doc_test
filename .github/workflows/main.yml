@@ -1,0 +1,30 @@
+name: sphinx build
+
+on: [push, pull_request]
+
+permissions:
+  contents: write
+
+jobs:
+  docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.8' 
+      - name: Install dependencies
+        run: |
+          pip install -r docs/requirements_docs.txt
+      - name: Sphinx build
+        run: |
+          sphinx-build docs/en/ _build/en
+          sphinx-build docs/zh_cn/ _build/zh_cn
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
+        with:
+          publish_branch: gh-pages
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: _build/
+          force_orphan: true
