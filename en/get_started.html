@@ -1,0 +1,701 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>GET STARTED &mdash; HCP-Diffusion 0.1.0 documentation</title>
+  
+
+  <link rel="shortcut icon" href="_static/images/logo192.png" />
+  
+  
+
+  
+
+  
+  
+  
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!-- <link rel="stylesheet" href="_static/pygments.css" type="text/css" /> -->
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/readthedocs.css" type="text/css" />
+  <link rel="index" title="Index" href="genindex.html" />
+  <link rel="search" title="Search" href="search.html" />
+  <link rel="next" title="English" href="switch_language.html" />
+  <link rel="prev" title="OVERVIEW" href="overview.html" />
+  <!-- Google Analytics -->
+  <script type="text/javascript">
+    var collapsedSections = [];
+  </script>
+  
+  <!-- End Google Analytics -->
+  
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+  <script>
+    MathJax = {
+        chtml: {
+            scale: 1,
+            minScale: 1,
+        },
+        svg: {
+            scale: 1,
+            minScale: 1,
+        }
+    }
+</script>
+
+  <!-- Preload the theme fonts -->
+
+<link rel="preload" href="_static/fonts/FreightSans/freight-sans-book.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="_static/fonts/FreightSans/freight-sans-medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="_static/fonts/IBMPlexMono/IBMPlexMono-Medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="_static/fonts/FreightSans/freight-sans-bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="_static/fonts/FreightSans/freight-sans-medium-italic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="_static/fonts/IBMPlexMono/IBMPlexMono-SemiBold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+
+<!-- Preload the katex fonts -->
+
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Math-Italic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Main-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Main-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size1-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size4-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size2-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size3-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Caligraphic-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+</head>
+
+<div class="container-fluid header-holder tutorials-header" id="header-holder">
+  <div class="container">
+    <div class="header-container">
+      <a class="header-logo" href=""
+        aria-label="OpenMMLab"></a>
+
+      <div class="main-menu">
+        <ul>
+          <li>
+            <a href="https://github.com/open-mmlab/mmdetection" target="_blank">GitHub</a>
+          </li>
+          <li >
+            <div id="resourcesDropdownButton" data-toggle="resources-dropdown" class="resources-dropdown">
+              <a
+                class="resource-option with-down-arrow">
+                Projects
+              </a>
+              <div class="resources-dropdown-menu">
+                <a class="doc-dropdown-option nav-dropdown-item"
+                  href="https://github.com/7eu7d7/HCP-Diffusion" target="_blank">
+                  <span class="dropdown-title">HCP-Diffusion </span>
+                  <p></p>
+                </a>
+                <a class="doc-dropdown-option nav-dropdown-item"
+                  href="https://github.com/7eu7d7/HCP-Diffusion-webui" target="_blank">
+                  <span class="dropdown-title">HCP-Diffusion webui </span>
+                  <p></p>
+                </a>
+              </div>
+          </li>
+        </ul>
+      </div>
+
+      <a class="main-menu-open-button" href="#" data-behavior="open-mobile-menu"></a>
+    </div>
+  </div>
+</div>
+
+<body class="pytorch-body">
+
+   
+
+  
+
+  <div class="table-of-contents-link-wrapper">
+    <span>Table of Contents</span>
+    <a href="#" class="toggle-table-of-contents" data-behavior="toggle-table-of-contents"></a>
+  </div>
+
+  <nav data-toggle="wy-nav-shift" class="pytorch-left-menu" id="pytorch-left-menu">
+    <div class="pytorch-side-scroll">
+      <div class="pytorch-menu pytorch-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <div class="pytorch-left-menu-search">
+          
+
+          
+          
+          
+          
+
+          
+
+
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search Docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        
+        
+        
+        
+        
+        <p class="caption"><span class="caption-text">Get Started</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">OVERVIEW</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">GET STARTED</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Switch Language</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="switch_language.html"><a href='https://mmdetection.readthedocs.io/en/latest/'>English</a></a></li>
+<li class="toctree-l1"><a class="reference internal" href="switch_language.html#a-href-https-mmdetection-readthedocs-io-zh-cn-latest-a"><a href='https://mmdetection.readthedocs.io/zh_CN/latest/'>简体中文</a></a></li>
+</ul>
+
+        
+        
+      </div>
+    </div>
+  </nav>
+
+  <div class="pytorch-container">
+    <div class="pytorch-page-level-bar" id="pytorch-page-level-bar">
+      <div class="pytorch-breadcrumbs-wrapper">
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="pytorch-breadcrumbs">
+    
+      <li>
+        <a href="index.html">
+            Docs
+        </a> &gt;
+      </li>
+
+        
+      <li>GET STARTED</li>
+    
+    
+      <li class="pytorch-breadcrumbs-aside">
+        
+            
+            
+            
+            
+              <a href="/en//get_started.html" class="fa fa-language"> Read in English</a>
+            
+        
+      </li>
+      
+    
+  </ul>
+
+  
+</div>
+      </div>
+
+      <div class="pytorch-shortcuts-wrapper" id="pytorch-shortcuts-wrapper">
+        Shortcuts
+      </div>
+    </div>
+
+    <section data-toggle="wy-nav-shift" id="pytorch-content-wrap" class="pytorch-content-wrap">
+      <div class="pytorch-content-left">
+        
+          <div class="rst-content">
+            
+            <div role="main" class="main-content" itemscope="itemscope" itemtype="http://schema.org/Article">
+              <article itemprop="articleBody" id="pytorch-article" class="pytorch-article">
+                
+                
+  <div class="section" id="get-started">
+<h1>GET STARTED<a class="headerlink" href="#get-started" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<p>In this section, we demonstrate how to prepare an environment with PyTorch.</p>
+<p>MMDetection works on Linux, Windows, and macOS. It requires Python 3.7+, CUDA 9.2+, and PyTorch 1.8+.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you are experienced with PyTorch and have already installed it, just skip this part and jump to the <a class="reference internal" href="#installation"><span class="std std-doc">next section</span></a>. Otherwise, you can follow these steps for the preparation.</p>
+<blockquote>
+<div><div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>import os</p>
+<blockquote>
+<div><div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>import torch</p>
+</div>
+</div></blockquote>
+</div>
+</div></blockquote>
+</div>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>If you are experienced with PyTorch and have already installed it, just skip this part and jump to the <a class="reference internal" href="#installation"><span class="std std-doc">next section</span></a>. Otherwise, you can follow these steps for the preparation.</p>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>If you are experienced with PyTorch and have already installed it, just skip this part and jump to the <a class="reference internal" href="#installation"><span class="std std-doc">next section</span></a>. Otherwise, you can follow these steps for the preparation.</p>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>If you are experienced with PyTorch and have already installed it, just skip this part and jump to the <a class="reference internal" href="#installation"><span class="std std-doc">next section</span></a>. Otherwise, you can follow these steps for the preparation.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you are experienced with PyTorch and have already installed it, just skip this part and jump to the <a class="reference internal" href="#installation"><span class="std std-doc">next section</span></a>. Otherwise, you can follow these steps for the preparation.</p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>If you are experienced with PyTorch and have already installed it, just skip this part and jump to the <a class="reference internal" href="#installation"><span class="std std-doc">next section</span></a>. Otherwise, you can follow these steps for the preparation.</p>
+</div>
+<p><strong>Step 0.</strong> Download and install Miniconda from the <a class="reference external" href="https://docs.conda.io/en/latest/miniconda.html">official website</a>.</p>
+<p><strong>Step 1.</strong> Create a conda environment and activate it.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>openmmlab<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.8<span class="w"> </span>-y
+conda<span class="w"> </span>activate<span class="w"> </span>openmmlab
+</pre></div>
+</div>
+<p><strong>Step 2.</strong> Install PyTorch following <a class="reference external" href="https://pytorch.org/get-started/locally/">official instructions</a>, e.g.</p>
+<p>On GPU platforms:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>install<span class="w"> </span>pytorch<span class="w"> </span>torchvision<span class="w"> </span>-c<span class="w"> </span>pytorch
+</pre></div>
+</div>
+<p>On CPU platforms:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>install<span class="w"> </span>pytorch<span class="w"> </span>torchvision<span class="w"> </span>cpuonly<span class="w"> </span>-c<span class="w"> </span>pytorch
+</pre></div>
+</div>
+</div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>We recommend that users follow our best practices to install MMDetection. However, the whole process is highly customizable. See <a class="reference internal" href="#customize-installation"><span class="std std-doc">Customize Installation</span></a> section for more information.</p>
+<div class="section" id="best-practices">
+<h3>Best Practices<a class="headerlink" href="#best-practices" title="Permalink to this headline">¶</a></h3>
+<p><strong>Step 0.</strong> Install <a class="reference external" href="https://github.com/open-mmlab/mmengine">MMEngine</a> and <a class="reference external" href="https://github.com/open-mmlab/mmcv">MMCV</a> using <a class="reference external" href="https://github.com/open-mmlab/mim">MIM</a>.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>openmim
+mim<span class="w"> </span>install<span class="w"> </span>mmengine
+mim<span class="w"> </span>install<span class="w"> </span><span class="s2">&quot;mmcv&gt;=2.0.0&quot;</span>
+</pre></div>
+</div>
+<p><strong>Note:</strong> In MMCV-v2.x, <code class="docutils literal notranslate"><span class="pre">mmcv-full</span></code> is rename to <code class="docutils literal notranslate"><span class="pre">mmcv</span></code>, if you want to install <code class="docutils literal notranslate"><span class="pre">mmcv</span></code> without CUDA ops, you can use <code class="docutils literal notranslate"><span class="pre">mim</span> <span class="pre">install</span> <span class="pre">&quot;mmcv-lite&gt;=2.0.0rc1&quot;</span></code> to install the lite version.</p>
+<p><strong>Step 1.</strong> Install MMDetection.</p>
+<p>Case a: If you develop and run mmdet directly, install it from source:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/open-mmlab/mmdetection.git
+<span class="nb">cd</span><span class="w"> </span>mmdetection
+pip<span class="w"> </span>install<span class="w"> </span>-v<span class="w"> </span>-e<span class="w"> </span>.
+<span class="c1"># &quot;-v&quot; means verbose, or more output</span>
+<span class="c1"># &quot;-e&quot; means installing a project in editable mode,</span>
+<span class="c1"># thus any local modifications made to the code will take effect without reinstallation.</span>
+</pre></div>
+</div>
+<p>Case b: If you use mmdet as a dependency or third-party package, install it with MIM:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mim<span class="w"> </span>install<span class="w"> </span>mmdet
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="verify-the-installation">
+<h2>Verify the installation<a class="headerlink" href="#verify-the-installation" title="Permalink to this headline">¶</a></h2>
+<p>To verify whether MMDetection is installed correctly, we provide some sample codes to run an inference demo.</p>
+<p><strong>Step 1.</strong> We need to download config and checkpoint files.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mim<span class="w"> </span>download<span class="w"> </span>mmdet<span class="w"> </span>--config<span class="w"> </span>rtmdet_tiny_8xb32-300e_coco<span class="w"> </span>--dest<span class="w"> </span>.
+</pre></div>
+</div>
+<p>The downloading will take several seconds or more, depending on your network environment. When it is done, you will find two files <code class="docutils literal notranslate"><span class="pre">rtmdet_tiny_8xb32-300e_coco.py</span></code> and <code class="docutils literal notranslate"><span class="pre">rtmdet_tiny_8xb32-300e_coco_20220902_112414-78e30dcc.pth</span></code> in your current folder.</p>
+<p><strong>Step 2.</strong> Verify the inference demo.</p>
+<p>Case a: If you install MMDetection from source, just run the following command.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>demo/image_demo.py<span class="w"> </span>demo/demo.jpg<span class="w"> </span>rtmdet_tiny_8xb32-300e_coco.py<span class="w"> </span>--weights<span class="w"> </span>rtmdet_tiny_8xb32-300e_coco_20220902_112414-78e30dcc.pth<span class="w"> </span>--device<span class="w"> </span>cpu
+</pre></div>
+</div>
+<p>You will see a new image <code class="docutils literal notranslate"><span class="pre">demo.jpg</span></code> on your <code class="docutils literal notranslate"><span class="pre">./outputs/vis</span></code> folder, where bounding boxes are plotted on cars, benches, etc.</p>
+<p>Case b: If you install MMDetection with MIM, open your python interpreter and copy&amp;paste the following codes.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mmdet.apis</span> <span class="kn">import</span> <span class="n">init_detector</span><span class="p">,</span> <span class="n">inference_detector</span>
+
+<span class="n">config_file</span> <span class="o">=</span> <span class="s1">&#39;rtmdet_tiny_8xb32-300e_coco.py&#39;</span>
+<span class="n">checkpoint_file</span> <span class="o">=</span> <span class="s1">&#39;rtmdet_tiny_8xb32-300e_coco_20220902_112414-78e30dcc.pth&#39;</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">init_detector</span><span class="p">(</span><span class="n">config_file</span><span class="p">,</span> <span class="n">checkpoint_file</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="s1">&#39;cpu&#39;</span><span class="p">)</span>  <span class="c1"># or device=&#39;cuda:0&#39;</span>
+<span class="n">inference_detector</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="s1">&#39;demo/demo.jpg&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You will see a list of <code class="docutils literal notranslate"><span class="pre">DetDataSample</span></code>, and the predictions are in the <code class="docutils literal notranslate"><span class="pre">pred_instance</span></code>, indicating the detected bounding boxes, labels, and scores.</p>
+</div>
+<div class="section" id="tracking-installation">
+<h2>Tracking Installation<a class="headerlink" href="#tracking-installation" title="Permalink to this headline">¶</a></h2>
+<p>We recommend that users follow our best practices to install MMDetection for for tracking task.</p>
+<div class="section" id="id1">
+<h3>Best Practices<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p><strong>Step 0.</strong> Install <a class="reference external" href="https://github.com/open-mmlab/mmengine">MMEngine</a> and <a class="reference external" href="https://github.com/open-mmlab/mmcv">MMCV</a> using <a class="reference external" href="https://github.com/open-mmlab/mim">MIM</a>.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>openmim
+mim<span class="w"> </span>install<span class="w"> </span>mmengine
+mim<span class="w"> </span>install<span class="w"> </span><span class="s2">&quot;mmcv&gt;=2.0.0&quot;</span>
+</pre></div>
+</div>
+<p><strong>Step 1.</strong> Install MMDetection.</p>
+<p>Case a: If you develop and run mmdet directly, install it from source:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/open-mmlab/mmdetection.git
+<span class="nb">cd</span><span class="w"> </span>mmdetection
+pip<span class="w"> </span>install<span class="w"> </span>-v<span class="w"> </span>-e<span class="w"> </span>.<span class="w"> </span>-r<span class="w"> </span>requirements/tracking.txt
+<span class="c1"># &quot;-v&quot; means verbose, or more output</span>
+<span class="c1"># &quot;-e&quot; means installing a project in editable mode,</span>
+<span class="c1"># thus any local modifications made to the code will take effect without reinstallation.</span>
+</pre></div>
+</div>
+<p>Case b: If you use mmdet as a dependency or third-party package, install it with MIM:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mim<span class="w"> </span>install<span class="w"> </span>mmdet<span class="o">[</span>tracking<span class="o">]</span>
+</pre></div>
+</div>
+<p><strong>Step 2.</strong> Install TrackEval.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/JonathonLuiten/TrackEval.git
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>Verify the installation<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>To verify whether MMDetection is installed correctly, we provide some sample codes to run an inference demo.</p>
+<p><strong>Step 1.</strong> We need to download config and checkpoint files.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mim<span class="w"> </span>download<span class="w"> </span>mmdet<span class="w"> </span>--config<span class="w"> </span>bytetrack_yolox_x_8xb4-amp-80e_crowdhuman-mot17halftrain_test-mot17halfval<span class="w"> </span>--dest<span class="w"> </span>.
+</pre></div>
+</div>
+<p>The downloading will take several seconds or more, depending on your network environment. When it is done, you will find two files <code class="docutils literal notranslate"><span class="pre">bytetrack_yolox_x_8xb4-amp-80e_crowdhuman-mot17halftrain_test-mot17halfval.py</span></code> and <code class="docutils literal notranslate"><span class="pre">bytetrack_yolox_x_crowdhuman_mot17-private-half_20211218_205500-1985c9f0.pth</span></code> in your current folder.</p>
+<p><strong>Step 2.</strong> Verify the inference demo.</p>
+<p>Case a: If you install MMDetection from source, just run the following command.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>demo/mot_demo.py<span class="w"> </span>demo/demo_mot.mp4<span class="w"> </span>bytetrack_yolox_x_8xb4-amp-80e_crowdhuman-mot17halftrain_test-mot17halfval.py<span class="w"> </span>--checkpoint<span class="w"> </span>bytetrack_yolox_x_crowdhuman_mot17-private-half_20211218_205500-1985c9f0.pth<span class="w"> </span>--out<span class="w"> </span>mot.mp4
+</pre></div>
+</div>
+<p>You will see a new video <code class="docutils literal notranslate"><span class="pre">mot.mp4</span></code> on your folder, where bounding boxes are plotted on person.</p>
+<p>Case b: If you install MMDetection with MIM, open your python interpreter and demo/mot_demo.py, then run it like Case a.</p>
+<div class="section" id="customize-installation">
+<h3>Customize Installation<a class="headerlink" href="#customize-installation" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="cuda-versions">
+<h4>CUDA versions<a class="headerlink" href="#cuda-versions" title="Permalink to this headline">¶</a></h4>
+<p>When installing PyTorch, you need to specify the version of CUDA. If you are not clear on which to choose, follow our recommendations:</p>
+<ul class="simple">
+<li><p>For Ampere-based NVIDIA GPUs, such as GeForce 30 series and NVIDIA A100, CUDA 11 is a must.</p></li>
+<li><p>For older NVIDIA GPUs, CUDA 11 is backward compatible, but CUDA 10.2 offers better compatibility and is more lightweight.</p></li>
+</ul>
+<p>Please make sure the GPU driver satisfies the minimum version requirements. See <a class="reference external" href="https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html#cuda-major-component-versions__table-cuda-toolkit-driver-versions">this table</a> for more information.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Installing CUDA runtime libraries is enough if you follow our best practices, because no CUDA code will be compiled locally. However, if you hope to compile MMCV from source or develop other CUDA operators, you need to install the complete CUDA toolkit from NVIDIA’s <a class="reference external" href="https://developer.nvidia.com/cuda-downloads">website</a>, and its version should match the CUDA version of PyTorch. i.e., the specified version of cudatoolkit in the <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span></code> command.</p>
+</div>
+</div>
+<div class="section" id="install-mmengine-without-mim">
+<h4>Install MMEngine without MIM<a class="headerlink" href="#install-mmengine-without-mim" title="Permalink to this headline">¶</a></h4>
+<p>To install MMEngine with pip instead of MIM, please follow <a class="reference external" href="https://mmengine.readthedocs.io/en/latest/get_started/installation.html">MMEngine installation guides</a>.</p>
+<p>For example, you can install MMEngine by the following command.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>mmengine
+</pre></div>
+</div>
+</div>
+<div class="section" id="install-mmcv-without-mim">
+<h4>Install MMCV without MIM<a class="headerlink" href="#install-mmcv-without-mim" title="Permalink to this headline">¶</a></h4>
+<p>MMCV contains C++ and CUDA extensions, thus depending on PyTorch in a complex way. MIM solves such dependencies automatically and makes the installation easier. However, it is not a must.</p>
+<p>To install MMCV with pip instead of MIM, please follow <a class="reference external" href="https://mmcv.readthedocs.io/en/2.x/get_started/installation.html">MMCV installation guides</a>. This requires manually specifying a find-url based on the PyTorch version and its CUDA version.</p>
+<p>For example, the following command installs MMCV built for PyTorch 1.12.x and CUDA 11.6.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span><span class="s2">&quot;mmcv&gt;=2.0.0&quot;</span><span class="w"> </span>-f<span class="w"> </span>https://download.openmmlab.com/mmcv/dist/cu116/torch1.12.0/index.html
+</pre></div>
+</div>
+</div>
+<div class="section" id="install-on-cpu-only-platforms">
+<h4>Install on CPU-only platforms<a class="headerlink" href="#install-on-cpu-only-platforms" title="Permalink to this headline">¶</a></h4>
+<p>MMDetection can be built for CPU-only environments. In CPU mode you can train (requires MMCV version &gt;= 2.0.0rc1), test, or infer a model.</p>
+<p>However, some functionalities are gone in this mode:</p>
+<ul class="simple">
+<li><p>Deformable Convolution</p></li>
+<li><p>Modulated Deformable Convolution</p></li>
+<li><p>ROI pooling</p></li>
+<li><p>Deformable ROI pooling</p></li>
+<li><p>CARAFE</p></li>
+<li><p>SyncBatchNorm</p></li>
+<li><p>CrissCrossAttention</p></li>
+<li><p>MaskedConv2d</p></li>
+<li><p>Temporal Interlace Shift</p></li>
+<li><p>nms_cuda</p></li>
+<li><p>sigmoid_focal_loss_cuda</p></li>
+<li><p>bbox_overlaps</p></li>
+</ul>
+<p>If you try to train/test/infer a model containing the above ops, an error will be raised.
+The following table lists affected algorithms.</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th style="text-align: center;">Operator</th>
+<th style="text-align: center;">Model</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">Deformable Convolution/Modulated Deformable Convolution</td>
+<td style="text-align: center;">DCN、Guided Anchoring、RepPoints、CentripetalNet、VFNet、CascadeRPN、NAS-FCOS、DetectoRS</td>
+</tr>
+<tr>
+<td style="text-align: center;">MaskedConv2d</td>
+<td style="text-align: center;">Guided Anchoring</td>
+</tr>
+<tr>
+<td style="text-align: center;">CARAFE</td>
+<td style="text-align: center;">CARAFE</td>
+</tr>
+<tr>
+<td style="text-align: center;">SyncBatchNorm</td>
+<td style="text-align: center;">ResNeSt</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="install-on-google-colab">
+<h4>Install on Google Colab<a class="headerlink" href="#install-on-google-colab" title="Permalink to this headline">¶</a></h4>
+<p><a class="reference external" href="https://colab.research.google.com/">Google Colab</a> usually has PyTorch installed,
+thus we only need to install MMEngine, MMCV, and MMDetection with the following commands.</p>
+<p><strong>Step 1.</strong> Install <a class="reference external" href="https://github.com/open-mmlab/mmengine">MMEngine</a> and <a class="reference external" href="https://github.com/open-mmlab/mmcv">MMCV</a> using <a class="reference external" href="https://github.com/open-mmlab/mim">MIM</a>.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>!pip3<span class="w"> </span>install<span class="w"> </span>openmim
+!mim<span class="w"> </span>install<span class="w"> </span>mmengine
+!mim<span class="w"> </span>install<span class="w"> </span><span class="s2">&quot;mmcv&gt;=2.0.0,&lt;2.1.0&quot;</span>
+</pre></div>
+</div>
+<p><strong>Step 2.</strong> Install MMDetection from the source.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>!git<span class="w"> </span>clone<span class="w"> </span>https://github.com/open-mmlab/mmdetection.git
+%cd<span class="w"> </span>mmdetection
+!pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
+</pre></div>
+</div>
+<p><strong>Step 3.</strong> Verification.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">mmdet</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mmdet</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+<span class="c1"># Example output: 3.0.0, or an another version.</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Within Jupyter, the exclamation mark <code class="docutils literal notranslate"><span class="pre">!</span></code> is used to call external executables and <code class="docutils literal notranslate"><span class="pre">%cd</span></code> is a <a class="reference external" href="https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-cd">magic command</a> to change the current working directory of Python.</p>
+</div>
+</div>
+<div class="section" id="use-mmdetection-with-docker">
+<h4>Use MMDetection with Docker<a class="headerlink" href="#use-mmdetection-with-docker" title="Permalink to this headline">¶</a></h4>
+<p>We provide a <span class="xref myst">Dockerfile</span> to build an image. Ensure that your <a class="reference external" href="https://docs.docker.com/engine/install/">docker version</a> &gt;=19.03.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># build an image with PyTorch 1.9, CUDA 11.1</span>
+<span class="c1"># If you prefer other versions, just modified the Dockerfile</span>
+docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>mmdetection<span class="w"> </span>docker/
+</pre></div>
+</div>
+<p>Run it with</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>--gpus<span class="w"> </span>all<span class="w"> </span>--shm-size<span class="o">=</span>8g<span class="w"> </span>-it<span class="w"> </span>-v<span class="w"> </span><span class="o">{</span>DATA_DIR<span class="o">}</span>:/mmdetection/data<span class="w"> </span>mmdetection
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="troubleshooting">
+<h3>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h3>
+<p>If you have some issues during the installation, please first view the <span class="xref myst">FAQ</span> page.
+You may <a class="reference external" href="https://github.com/open-mmlab/mmdetection/issues/new/choose">open an issue</a> on GitHub if no solution is found.</p>
+</div>
+<div class="section" id="use-multiple-versions-of-mmdetection-in-development">
+<h3>Use Multiple Versions of MMDetection in Development<a class="headerlink" href="#use-multiple-versions-of-mmdetection-in-development" title="Permalink to this headline">¶</a></h3>
+<p>Training and testing scripts have already been modified in <code class="docutils literal notranslate"><span class="pre">PYTHONPATH</span></code> in order to make sure the scripts are using their own versions of MMDetection.</p>
+<p>To install the default version of MMDetection in your environment, you can exclude the follow code in the relative scripts:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">PYTHONPATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>dirname<span class="w"> </span><span class="nv">$0</span><span class="k">)</span><span class="s2">/..&quot;</span>:<span class="nv">$PYTHONPATH</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+              </article>
+              
+            </div>
+            <footer>
+  
+  <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+    
+    <a href="switch_language.html" class="btn btn-neutral float-right" title="English" accesskey="n"
+      rel="next">Next <img src="_static/images/chevron-right-blue.svg"
+        class="next-page"></a>
+    
+    
+    <a href="overview.html" class="btn btn-neutral" title="OVERVIEW" accesskey="p"
+      rel="prev"><img src="_static/images/chevron-right-blue.svg" class="previous-page"> Previous</a>
+    
+  </div>
+  
+
+  <hr>
+
+  <div role="contentinfo">
+    <p>
+      &copy; Copyright 2018-2021, HCP Lab.
+
+    </p>
+  </div>
+  
+  <div>
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a
+      href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the
+      Docs</a>.
+  </div>
+   
+
+</footer>
+          </div>
+        </div>
+
+        <div class="pytorch-content-right" id="pytorch-content-right">
+          <div class="pytorch-right-menu" id="pytorch-right-menu">
+            <div class="pytorch-side-scroll" id="pytorch-side-scroll-right">
+              <ul>
+<li><a class="reference internal" href="#">GET STARTED</a><ul>
+<li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li><a class="reference internal" href="#installation">Installation</a><ul>
+<li><a class="reference internal" href="#best-practices">Best Practices</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#verify-the-installation">Verify the installation</a></li>
+<li><a class="reference internal" href="#tracking-installation">Tracking Installation</a><ul>
+<li><a class="reference internal" href="#id1">Best Practices</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id2">Verify the installation</a><ul>
+<li><a class="reference internal" href="#customize-installation">Customize Installation</a><ul>
+<li><a class="reference internal" href="#cuda-versions">CUDA versions</a></li>
+<li><a class="reference internal" href="#install-mmengine-without-mim">Install MMEngine without MIM</a></li>
+<li><a class="reference internal" href="#install-mmcv-without-mim">Install MMCV without MIM</a></li>
+<li><a class="reference internal" href="#install-on-cpu-only-platforms">Install on CPU-only platforms</a></li>
+<li><a class="reference internal" href="#install-on-google-colab">Install on Google Colab</a></li>
+<li><a class="reference internal" href="#use-mmdetection-with-docker">Use MMDetection with Docker</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
+<li><a class="reference internal" href="#use-multiple-versions-of-mmdetection-in-development">Use Multiple Versions of MMDetection in Development</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+          </div>
+        </div>
+    </section>
+  </div>
+
+  
+
+
+  
+
+  
+  <script type="text/javascript" id="documentation_options" data-url_root="./"
+    src="_static/documentation_options.js"></script>
+  <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+  <script src="_static/jquery.js"></script>
+  <script src="_static/underscore.js"></script>
+  <script src="_static/doctools.js"></script>
+  <script src="_static/clipboard.min.js"></script>
+  <script src="_static/copybutton.js"></script>
+  
+
+  
+
+  <script type="text/javascript" src="_static/js/vendor/popper.min.js"></script>
+  <script type="text/javascript" src="_static/js/vendor/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+    jQuery(function () {
+      SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+  <!-- Begin Footer -->
+
+  <div class="container-fluid docs-tutorials-resources" id="docs-tutorials-resources">
+  </div>
+
+  <!-- End Footer -->
+
+  <!-- Begin Mobile Menu -->
+
+  <div class="mobile-main-menu">
+    <div class="container-fluid">
+      <div class="container">
+        <div class="mobile-main-menu-header-container">
+          <a class="header-logo" href="" aria-label="OpenMMLab"></a>
+          <a class="main-menu-close-button" href="#" data-behavior="close-mobile-menu"></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="mobile-main-menu-links-container">
+      <div class="main-menu">
+        <ul>
+          <li>
+            <a href="https://github.com/open-mmlab/mmdetection" target="_blank">GitHub</a>
+          </li>
+      </div>
+    </div>
+  </div>
+
+  <!-- End Mobile Menu -->
+
+  <script type="text/javascript" src="_static/js/vendor/anchor.min.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      mobileMenu.bind();
+      mobileTOC.bind();
+      pytorchAnchors.bind();
+      sideMenus.bind();
+      scrollToAnchor.bind();
+      highlightNavigation.bind();
+      mainMenuDropdown.bind();
+      filterTags.bind();
+
+      // Add class to links that have code blocks, since we cannot create links in code blocks
+      $("article.pytorch-article a span.pre").each(function (e) {
+        $(this).closest("a").addClass("has-code");
+      });
+    })
+  </script>
+</body>
+
+</html>

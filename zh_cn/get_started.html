@@ -1,0 +1,565 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="zh-CN">
+<!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>开始使用HCP-Diffusion &mdash; HCP-Diffusion 0.1.0 文档</title>
+  
+
+  <link rel="shortcut icon" href="_static/images/logo192.png" />
+  
+  
+
+  
+
+  
+  
+  
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!-- <link rel="stylesheet" href="_static/pygments.css" type="text/css" /> -->
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/readthedocs.css" type="text/css" />
+  <link rel="index" title="索引" href="genindex.html" />
+  <link rel="search" title="搜索" href="search.html" />
+  <link rel="next" title="English" href="switch_language.html" />
+  <link rel="prev" title="推理阶段使用教程" href="overview.html" />
+  <!-- Google Analytics -->
+  <script type="text/javascript">
+    var collapsedSections = [];
+  </script>
+  
+  <!-- End Google Analytics -->
+  
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+  <script>
+    MathJax = {
+        chtml: {
+            scale: 1,
+            minScale: 1,
+        },
+        svg: {
+            scale: 1,
+            minScale: 1,
+        }
+    }
+</script>
+
+  <!-- Preload the theme fonts -->
+
+<link rel="preload" href="_static/fonts/FreightSans/freight-sans-book.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="_static/fonts/FreightSans/freight-sans-medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="_static/fonts/IBMPlexMono/IBMPlexMono-Medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="_static/fonts/FreightSans/freight-sans-bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="_static/fonts/FreightSans/freight-sans-medium-italic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="_static/fonts/IBMPlexMono/IBMPlexMono-SemiBold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+
+<!-- Preload the katex fonts -->
+
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Math-Italic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Main-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Main-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size1-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size4-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size2-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size3-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Caligraphic-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+</head>
+
+<div class="container-fluid header-holder tutorials-header" id="header-holder">
+  <div class="container">
+    <div class="header-container">
+      <a class="header-logo" href=""
+        aria-label="OpenMMLab"></a>
+
+      <div class="main-menu">
+        <ul>
+          <li>
+            <a href="https://github.com/7eu7d7/HCP-Diffusion/" target="_blank">GitHub</a>
+          </li>
+          <li >
+            <div id="resourcesDropdownButton" data-toggle="resources-dropdown" class="resources-dropdown">
+              <a
+                class="resource-option with-down-arrow">
+                项目
+              </a>
+              <div class="resources-dropdown-menu">
+                <a class="doc-dropdown-option nav-dropdown-item"
+                  href="https://github.com/7eu7d7/HCP-Diffusion" target="_blank">
+                  <span class="dropdown-title">HCP-Diffusion </span>
+                  <p></p>
+                </a>
+                <a class="doc-dropdown-option nav-dropdown-item"
+                  href="https://github.com/7eu7d7/HCP-Diffusion-webui" target="_blank">
+                  <span class="dropdown-title">HCP-Diffusion webui </span>
+                  <p></p>
+                </a>
+              </div>
+          </li>
+        </ul>
+      </div>
+
+      <a class="main-menu-open-button" href="#" data-behavior="open-mobile-menu"></a>
+    </div>
+  </div>
+</div>
+
+<body class="pytorch-body">
+
+   
+
+  
+
+  <div class="table-of-contents-link-wrapper">
+    <span>Table of Contents</span>
+    <a href="#" class="toggle-table-of-contents" data-behavior="toggle-table-of-contents"></a>
+  </div>
+
+  <nav data-toggle="wy-nav-shift" class="pytorch-left-menu" id="pytorch-left-menu">
+    <div class="pytorch-side-scroll">
+      <div class="pytorch-menu pytorch-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <div class="pytorch-left-menu-search">
+          
+
+          
+          
+          
+          
+
+          
+
+
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search Docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        
+        
+        
+        
+        
+        <p class="caption"><span class="caption-text">开始你的第一步</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">推理阶段使用教程</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">开始使用HCP-Diffusion</a></li>
+</ul>
+<p class="caption"><span class="caption-text">语言切换</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="switch_language.html"><a href='https://mmdetection.readthedocs.io/en/latest/'>English</a></a></li>
+<li class="toctree-l1"><a class="reference internal" href="switch_language.html#a-href-https-mmdetection-readthedocs-io-zh-cn-latest-a"><a href='https://mmdetection.readthedocs.io/zh_CN/latest/'>简体中文</a></a></li>
+</ul>
+
+        
+        
+      </div>
+    </div>
+  </nav>
+
+  <div class="pytorch-container">
+    <div class="pytorch-page-level-bar" id="pytorch-page-level-bar">
+      <div class="pytorch-breadcrumbs-wrapper">
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="pytorch-breadcrumbs">
+    
+      <li>
+        <a href="index.html">
+            Docs
+        </a> &gt;
+      </li>
+
+        
+      <li>开始使用HCP-Diffusion</li>
+    
+    
+      <li class="pytorch-breadcrumbs-aside">
+        
+            
+            
+            
+            
+              <a href="/en//get_started.html" class="fa fa-language"> Read in English</a>
+            
+        
+      </li>
+      
+    
+  </ul>
+
+  
+</div>
+      </div>
+
+      <div class="pytorch-shortcuts-wrapper" id="pytorch-shortcuts-wrapper">
+        Shortcuts
+      </div>
+    </div>
+
+    <section data-toggle="wy-nav-shift" id="pytorch-content-wrap" class="pytorch-content-wrap">
+      <div class="pytorch-content-left">
+        
+          <div class="rst-content">
+            
+            <div role="main" class="main-content" itemscope="itemscope" itemtype="http://schema.org/Article">
+              <article itemprop="articleBody" id="pytorch-article" class="pytorch-article">
+                
+                
+  <div class="section" id="hcp-diffusion">
+<h1>开始使用HCP-Diffusion<a class="headerlink" href="#hcp-diffusion" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id1">
+<h2>简介<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>HCP-Diffusion是一个基于<a class="reference external" href="https://github.com/huggingface/diffusers">🤗 Diffusers</a>的Stable Diffusion模型训练工具箱。
+相比于<a class="reference external" href="https://github.com/AUTOMATIC1111/stable-diffusion-webui">webui</a>和<a class="reference external" href="https://github.com/kohya-ss/sd-scripts">sd-scripts</a>有更加清晰的代码结构，更方便的实验配置和管理方法，更多的训练组件支持。</p>
+<p>框架支持<strong>Colossal-AI</strong>，可以大幅减少显存消耗。</p>
+<p>HCP-Diffusion可以通过一个<code class="docutils literal notranslate"><span class="pre">.yaml</span></code>配置文件统一现有大多数训练方法和模型结构，包括Prompt-tuning (Textual Inversion), DreamArtist, Fine-tuning, DreamBooth, LoRA, ControlNet等绝大多数方法。
+也可以实现各个方法直接的组合使用。</p>
+<p>框架实现了基于LoRA的升级版DreamArtist，即DreamArtist++，只用一张图像就可以训练得到高泛化性，高可控性的LoRA。
+相比DreamArtist更加稳定，图像质量和可控性更高，训练速度更快。</p>
+</div>
+<div class="section" id="id2">
+<h2>特性支持<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>分层添加LoRA (包含Conv2d层)</p></li>
+<li><p>分层fine-tuning</p></li>
+<li><p>分层模型融合</p></li>
+<li><p>多个单词联合prompt-tuning</p></li>
+<li><p>DreamArtist、DreamArtist++</p></li>
+<li><p>带自动聚类的Aspect Ratio Bucket (ARB)</p></li>
+<li><p>支持多个数据源的多个数据集</p></li>
+<li><p>图像局部注意力强化</p></li>
+<li><p>单词注意力调整</p></li>
+<li><p>占多个词位置的自定义单词</p></li>
+<li><p>最大句子长度拓展</p></li>
+<li><p><a class="reference external" href="https://github.com/huggingface/accelerate">🤗 Accelerate</a></p></li>
+<li><p><a class="reference external" href="https://github.com/hpcaitech/ColossalAI">Colossal-AI</a></p></li>
+<li><p><a class="reference external" href="https://github.com/facebookresearch/xformers">xFormers</a> （用于UNet和文本编码器）</p></li>
+<li><p>CLIP skip</p></li>
+<li><p>标签打乱和 dropout</p></li>
+<li><p><a class="reference external" href="https://github.com/huggingface/safetensors">Safetensors</a>支持</p></li>
+<li><p><a class="reference external" href="https://github.com/lllyasviel/ControlNet">Controlnet</a> (支持训练)</p></li>
+<li><p>Min-SNR loss</p></li>
+<li><p>自定义优化器 (Lion, DAdaptation, pytorch-optimizer, …)</p></li>
+<li><p>自定义学习率调整器</p></li>
+<li><p>SDXL 支持</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>准备数据</p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">重要</p>
+<p>训练模型</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>生成图像</p>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>安装<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>通过pip安装:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>hcpdiff
+<span class="c1"># 新建一个项目并进行初始化</span>
+hcpinit
+</pre></div>
+</div>
+<p>从源码安装:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/7eu7d7/HCP-Diffusion.git
+<span class="nb">cd</span><span class="w"> </span>HCP-Diffusion
+pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
+<span class="c1"># 基于此项目直接修改，或新建一个项目并进行初始化</span>
+<span class="c1">## hcpinit</span>
+</pre></div>
+</div>
+<p>使用xFormers减少显存使用并加速训练:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># use conda</span>
+conda<span class="w"> </span>install<span class="w"> </span>xformers<span class="w"> </span>-c<span class="w"> </span>xformers
+
+<span class="c1"># use pip</span>
+pip<span class="w"> </span>install<span class="w"> </span>xformers&gt;<span class="o">=</span><span class="m">0</span>.0.17
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>使用教程<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id5">
+<h3>训练<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<p>HCP-Diffusion提供了基于🤗 Accelerate或Colossal-AI的训练脚本。</p>
+<ul class="simple">
+<li><p>若使用🤗 Accelerate，可能需要在启动脚本前先<a class="reference external" href="https://github.com/huggingface/accelerate/tree/main#launching-script">配置环境</a>。</p></li>
+<li><p>若使用Colossal-AI，可使用<a class="reference external" href="https://pytorch.org/docs/stable/elastic/run.html">torchrun</a>来启动脚本。</p></li>
+</ul>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># 使用Accelerate</span>
+<span class="l l-Scalar l-Scalar-Plain">accelerate launch -m hcpdiff.train_ac --cfg cfgs/train/配置文件.yaml</span>
+<span class="l l-Scalar l-Scalar-Plain"># 使用Accelerate（单卡）</span>
+<span class="l l-Scalar l-Scalar-Plain">accelerate launch -m hcpdiff.train_ac_single --cfg cfgs/train/配置文件.yaml</span>
+<span class="l l-Scalar l-Scalar-Plain"># 使用Colossal-AI</span>
+<span class="l l-Scalar l-Scalar-Plain">torchrun --nproc_per_node 1 -m hcpdiff.train_colo --cfg cfgs/train/配置文件.yaml</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h3>推断（生成图像）:<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">python -m hcpdiff.visualizer --cfg cfgs/infer/cfg.yaml pretrained_model=pretrained_model_path \</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">prompt=&#39;positive_prompt&#39; \</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">neg_prompt=&#39;negative_prompt&#39; \</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">seed=42</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="stable-diffusion">
+<h3>Stable Diffusion模型的转换<a class="headerlink" href="#stable-diffusion" title="永久链接至标题">¶</a></h3>
+<p>该框架基于🤗 Diffusers，故需要使用<a class="reference external" href="https://github.com/huggingface/diffusers/blob/main/scripts/convert_original_stable_diffusion_to_diffusers.py">🤗 Diffusers提供的脚本</a>把原版Stable Diffusion模型转换成支持的格式：</p>
+<ul class="simple">
+<li><p>首先下载<a class="reference external" href="https://huggingface.co/runwayml/stable-diffusion-v1-5/blob/main/v1-inference.yaml">配置文件</a></p></li>
+<li><p>根据配置文件转换模型</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>hcpdiff.tools.sd2diffusers<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--checkpoint_path<span class="w"> </span><span class="s2">&quot;stable diffusion模型路径&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--original_config_file<span class="w"> </span><span class="s2">&quot;下载的配置文件路径&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--dump_path<span class="w"> </span><span class="s2">&quot;储存路径(文件夹)&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="o">[</span>--extract_ema<span class="o">]</span><span class="w"> </span><span class="c1"># 是否提取EMA模型</span>
+<span class="w">    </span><span class="o">[</span>--from_safetensors<span class="o">]</span><span class="w"> </span><span class="c1"># 原模型是不是safetensors格式</span>
+<span class="w">    </span><span class="o">[</span>--to_safetensors<span class="o">]</span><span class="w"> </span><span class="c1"># 是否存成safetensors格式</span>
+</pre></div>
+</div>
+<p>转换VAE:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>hcpdiff.tools.sd2diffusers<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--vae_pt_path<span class="w"> </span><span class="s2">&quot;VAE模型路径&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--original_config_file<span class="w"> </span><span class="s2">&quot;下载的配置文件路径&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--dump_path<span class="w"> </span><span class="s2">&quot;储存路径(文件夹)&quot;</span>
+<span class="w">    </span><span class="o">[</span>--from_safetensors<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id7">
+<h3>教程<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p><span class="xref myst">模型训练教程</span></p></li>
+<li><p><span class="xref myst">DreamArtist++使用教程</span></p></li>
+<li><p><span class="xref myst">图像生成教程</span></p></li>
+<li><p><span class="xref myst">配置文件说明</span></p></li>
+<li><p><span class="xref myst">webui模型转换教程</span></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id8">
+<h2>做出贡献<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
+<p>欢迎为工具箱贡献更多的模型与特性。</p>
+</div>
+<div class="section" id="id9">
+<h2>团队<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h2>
+<p>该工具箱由 <a class="reference external" href="https://www.sysu-hcp.net/">中山大学HCP-Lab</a> 维护。</p>
+</div>
+<div class="section" id="id10">
+<h2>引用<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@article</span><span class="p">{</span><span class="n">DBLP</span><span class="p">:</span><span class="n">journals</span><span class="o">/</span><span class="n">corr</span><span class="o">/</span><span class="nb">abs</span><span class="o">-</span><span class="mi">2211</span><span class="o">-</span><span class="mi">11337</span><span class="p">,</span>
+  <span class="n">author</span>    <span class="o">=</span> <span class="p">{</span><span class="n">Ziyi</span> <span class="n">Dong</span> <span class="ow">and</span>
+               <span class="n">Pengxu</span> <span class="n">Wei</span> <span class="ow">and</span>
+               <span class="n">Liang</span> <span class="n">Lin</span><span class="p">},</span>
+  <span class="n">title</span>     <span class="o">=</span> <span class="p">{</span><span class="n">DreamArtist</span><span class="p">:</span> <span class="n">Towards</span> <span class="n">Controllable</span> <span class="n">One</span><span class="o">-</span><span class="n">Shot</span> <span class="n">Text</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">Image</span> <span class="n">Generation</span>
+               <span class="n">via</span> <span class="n">Positive</span><span class="o">-</span><span class="n">Negative</span> <span class="n">Prompt</span><span class="o">-</span><span class="n">Tuning</span><span class="p">},</span>
+  <span class="n">journal</span>   <span class="o">=</span> <span class="p">{</span><span class="n">CoRR</span><span class="p">},</span>
+  <span class="n">volume</span>    <span class="o">=</span> <span class="p">{</span><span class="nb">abs</span><span class="o">/</span><span class="mf">2211.11337</span><span class="p">},</span>
+  <span class="n">year</span>      <span class="o">=</span> <span class="p">{</span><span class="mi">2022</span><span class="p">},</span>
+  <span class="n">doi</span>       <span class="o">=</span> <span class="p">{</span><span class="mf">10.48550</span><span class="o">/</span><span class="n">arXiv</span><span class="mf">.2211.11337</span><span class="p">},</span>
+  <span class="n">eprinttype</span> <span class="o">=</span> <span class="p">{</span><span class="n">arXiv</span><span class="p">},</span>
+  <span class="n">eprint</span>    <span class="o">=</span> <span class="p">{</span><span class="mf">2211.11337</span><span class="p">},</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+              </article>
+              
+            </div>
+            <footer>
+  
+  <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+    
+    <a href="switch_language.html" class="btn btn-neutral float-right" title="English" accesskey="n"
+      rel="next">Next <img src="_static/images/chevron-right-blue.svg"
+        class="next-page"></a>
+    
+    
+    <a href="overview.html" class="btn btn-neutral" title="推理阶段使用教程" accesskey="p"
+      rel="prev"><img src="_static/images/chevron-right-blue.svg" class="previous-page"> Previous</a>
+    
+  </div>
+  
+
+  <hr>
+
+  <div role="contentinfo">
+    <p>
+      &copy; Copyright 2018-2021, HCP Lab.
+
+    </p>
+  </div>
+  
+  <div>
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a
+      href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the
+      Docs</a>.
+  </div>
+   
+
+</footer>
+          </div>
+        </div>
+
+        <div class="pytorch-content-right" id="pytorch-content-right">
+          <div class="pytorch-right-menu" id="pytorch-right-menu">
+            <div class="pytorch-side-scroll" id="pytorch-side-scroll-right">
+              <ul>
+<li><a class="reference internal" href="#">开始使用HCP-Diffusion</a><ul>
+<li><a class="reference internal" href="#id1">简介</a></li>
+<li><a class="reference internal" href="#id2">特性支持</a></li>
+<li><a class="reference internal" href="#id3">安装</a></li>
+<li><a class="reference internal" href="#id4">使用教程</a><ul>
+<li><a class="reference internal" href="#id5">训练</a></li>
+<li><a class="reference internal" href="#id6">推断（生成图像）:</a></li>
+<li><a class="reference internal" href="#stable-diffusion">Stable Diffusion模型的转换</a></li>
+<li><a class="reference internal" href="#id7">教程</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id8">做出贡献</a></li>
+<li><a class="reference internal" href="#id9">团队</a></li>
+<li><a class="reference internal" href="#id10">引用</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+          </div>
+        </div>
+    </section>
+  </div>
+
+  
+
+
+  
+
+  
+  <script type="text/javascript" id="documentation_options" data-url_root="./"
+    src="_static/documentation_options.js"></script>
+  <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+  <script src="_static/jquery.js"></script>
+  <script src="_static/underscore.js"></script>
+  <script src="_static/doctools.js"></script>
+  <script src="_static/clipboard.min.js"></script>
+  <script src="_static/copybutton.js"></script>
+  <script src="_static/translations.js"></script>
+  
+
+  
+
+  <script type="text/javascript" src="_static/js/vendor/popper.min.js"></script>
+  <script type="text/javascript" src="_static/js/vendor/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+    jQuery(function () {
+      SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+  <!-- Begin Footer -->
+
+  <div class="container-fluid docs-tutorials-resources" id="docs-tutorials-resources">
+  </div>
+
+  <!-- End Footer -->
+
+  <!-- Begin Mobile Menu -->
+
+  <div class="mobile-main-menu">
+    <div class="container-fluid">
+      <div class="container">
+        <div class="mobile-main-menu-header-container">
+          <a class="header-logo" href="" aria-label="OpenMMLab"></a>
+          <a class="main-menu-close-button" href="#" data-behavior="close-mobile-menu"></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="mobile-main-menu-links-container">
+      <div class="main-menu">
+        <ul>
+          <li>
+            <a href="https://github.com/7eu7d7/HCP-Diffusion/" target="_blank">GitHub</a>
+          </li>
+      </div>
+    </div>
+  </div>
+
+  <!-- End Mobile Menu -->
+
+  <script type="text/javascript" src="_static/js/vendor/anchor.min.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      mobileMenu.bind();
+      mobileTOC.bind();
+      pytorchAnchors.bind();
+      sideMenus.bind();
+      scrollToAnchor.bind();
+      highlightNavigation.bind();
+      mainMenuDropdown.bind();
+      filterTags.bind();
+
+      // Add class to links that have code blocks, since we cannot create links in code blocks
+      $("article.pytorch-article a span.pre").each(function (e) {
+        $(this).closest("a").addClass("has-code");
+      });
+    })
+  </script>
+</body>
+
+</html>

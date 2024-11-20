@@ -1,0 +1,520 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="zh-CN">
+<!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>推理阶段使用教程 &mdash; HCP-Diffusion 0.1.0 文档</title>
+  
+
+  <link rel="shortcut icon" href="_static/images/logo192.png" />
+  
+  
+
+  
+
+  
+  
+  
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!-- <link rel="stylesheet" href="_static/pygments.css" type="text/css" /> -->
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/readthedocs.css" type="text/css" />
+  <link rel="index" title="索引" href="genindex.html" />
+  <link rel="search" title="搜索" href="search.html" />
+  <link rel="next" title="开始使用HCP-Diffusion" href="get_started.html" />
+  <link rel="prev" title="Welcome to MMDetection’s documentation!" href="index.html" />
+  <!-- Google Analytics -->
+  <script type="text/javascript">
+    var collapsedSections = [];
+  </script>
+  
+  <!-- End Google Analytics -->
+  
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+  <script>
+    MathJax = {
+        chtml: {
+            scale: 1,
+            minScale: 1,
+        },
+        svg: {
+            scale: 1,
+            minScale: 1,
+        }
+    }
+</script>
+
+  <!-- Preload the theme fonts -->
+
+<link rel="preload" href="_static/fonts/FreightSans/freight-sans-book.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="_static/fonts/FreightSans/freight-sans-medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="_static/fonts/IBMPlexMono/IBMPlexMono-Medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="_static/fonts/FreightSans/freight-sans-bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="_static/fonts/FreightSans/freight-sans-medium-italic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="_static/fonts/IBMPlexMono/IBMPlexMono-SemiBold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+
+<!-- Preload the katex fonts -->
+
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Math-Italic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Main-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Main-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size1-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size4-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size2-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size3-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Caligraphic-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+</head>
+
+<div class="container-fluid header-holder tutorials-header" id="header-holder">
+  <div class="container">
+    <div class="header-container">
+      <a class="header-logo" href=""
+        aria-label="OpenMMLab"></a>
+
+      <div class="main-menu">
+        <ul>
+          <li>
+            <a href="https://github.com/7eu7d7/HCP-Diffusion/" target="_blank">GitHub</a>
+          </li>
+          <li >
+            <div id="resourcesDropdownButton" data-toggle="resources-dropdown" class="resources-dropdown">
+              <a
+                class="resource-option with-down-arrow">
+                项目
+              </a>
+              <div class="resources-dropdown-menu">
+                <a class="doc-dropdown-option nav-dropdown-item"
+                  href="https://github.com/7eu7d7/HCP-Diffusion" target="_blank">
+                  <span class="dropdown-title">HCP-Diffusion </span>
+                  <p></p>
+                </a>
+                <a class="doc-dropdown-option nav-dropdown-item"
+                  href="https://github.com/7eu7d7/HCP-Diffusion-webui" target="_blank">
+                  <span class="dropdown-title">HCP-Diffusion webui </span>
+                  <p></p>
+                </a>
+              </div>
+          </li>
+        </ul>
+      </div>
+
+      <a class="main-menu-open-button" href="#" data-behavior="open-mobile-menu"></a>
+    </div>
+  </div>
+</div>
+
+<body class="pytorch-body">
+
+   
+
+  
+
+  <div class="table-of-contents-link-wrapper">
+    <span>Table of Contents</span>
+    <a href="#" class="toggle-table-of-contents" data-behavior="toggle-table-of-contents"></a>
+  </div>
+
+  <nav data-toggle="wy-nav-shift" class="pytorch-left-menu" id="pytorch-left-menu">
+    <div class="pytorch-side-scroll">
+      <div class="pytorch-menu pytorch-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <div class="pytorch-left-menu-search">
+          
+
+          
+          
+          
+          
+
+          
+
+
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search Docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        
+        
+        
+        
+        
+        <p class="caption"><span class="caption-text">开始你的第一步</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">推理阶段使用教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="get_started.html">开始使用HCP-Diffusion</a></li>
+</ul>
+<p class="caption"><span class="caption-text">语言切换</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="switch_language.html"><a href='https://mmdetection.readthedocs.io/en/latest/'>English</a></a></li>
+<li class="toctree-l1"><a class="reference internal" href="switch_language.html#a-href-https-mmdetection-readthedocs-io-zh-cn-latest-a"><a href='https://mmdetection.readthedocs.io/zh_CN/latest/'>简体中文</a></a></li>
+</ul>
+
+        
+        
+      </div>
+    </div>
+  </nav>
+
+  <div class="pytorch-container">
+    <div class="pytorch-page-level-bar" id="pytorch-page-level-bar">
+      <div class="pytorch-breadcrumbs-wrapper">
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="pytorch-breadcrumbs">
+    
+      <li>
+        <a href="index.html">
+            Docs
+        </a> &gt;
+      </li>
+
+        
+      <li>推理阶段使用教程</li>
+    
+    
+      <li class="pytorch-breadcrumbs-aside">
+        
+            
+            
+            
+            
+              <a href="/en//overview.html" class="fa fa-language"> Read in English</a>
+            
+        
+      </li>
+      
+    
+  </ul>
+
+  
+</div>
+      </div>
+
+      <div class="pytorch-shortcuts-wrapper" id="pytorch-shortcuts-wrapper">
+        Shortcuts
+      </div>
+    </div>
+
+    <section data-toggle="wy-nav-shift" id="pytorch-content-wrap" class="pytorch-content-wrap">
+      <div class="pytorch-content-left">
+        
+          <div class="rst-content">
+            
+            <div role="main" class="main-content" itemscope="itemscope" itemtype="http://schema.org/Article">
+              <article itemprop="articleBody" id="pytorch-article" class="pytorch-article">
+                
+                
+  <div class="section" id="id1">
+<h1>推理阶段使用教程<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>推理阶段同样使用<code class="docutils literal notranslate"><span class="pre">.yaml</span></code>配置文件描述使用哪些训练的组件，以及使用什么参数生成。</p>
+<div class="section" id="id2">
+<h2>生成参数<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">pretrained_model</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;&#39;</span><span class="w"> </span><span class="c1"># 预训练基础模型</span>
+<span class="nt">prompt</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;&#39;</span><span class="w"> </span><span class="c1"># 生成使用的文本</span>
+<span class="c1">#负文本，可以将不要的特征排除掉</span>
+<span class="nt">neg_prompt</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;lowres,</span><span class="nv"> </span><span class="s">bad</span><span class="nv"> </span><span class="s">anatomy,</span><span class="nv"> </span><span class="s">bad</span><span class="nv"> </span><span class="s">hands,</span><span class="nv"> </span><span class="s">text,</span><span class="nv"> </span><span class="s">error,</span><span class="nv"> </span><span class="s">missing</span><span class="nv"> </span><span class="s">fingers,</span><span class="nv"> </span><span class="s">extra</span><span class="nv"> </span><span class="s">digit,</span><span class="nv"> </span><span class="s">fewer</span><span class="nv"> </span><span class="s">digits,</span><span class="nv"> </span><span class="s">cropped,</span><span class="nv"> </span><span class="s">worst</span><span class="nv"> </span><span class="s">quality,</span><span class="nv"> </span><span class="s">low</span><span class="nv"> </span><span class="s">quality,</span><span class="nv"> </span><span class="s">normal</span><span class="nv"> </span><span class="s">quality,</span><span class="nv"> </span><span class="s">jpeg</span><span class="nv"> </span><span class="s">artifacts,</span><span class="nv"> </span><span class="s">signature,</span><span class="nv"> </span><span class="s">watermark,</span><span class="nv"> </span><span class="s">username,</span><span class="nv"> </span><span class="s">blurry&#39;</span>
+<span class="nt">out_dir</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;output/&#39;</span><span class="w"> </span><span class="c1"># 图像输出文件夹</span>
+<span class="nt">emb_dir</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;embs/&#39;</span><span class="w"> </span><span class="c1"># 自定义单词(embedding)文件夹</span>
+<span class="nt">N_repeat</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span><span class="w"> </span><span class="c1"># 句子长度扩展倍数</span>
+<span class="nt">clip_skip</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="nt">bs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4</span><span class="w"> </span><span class="c1"># batch_size</span>
+<span class="nt">num</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span><span class="w"> </span><span class="c1"># 总图像数=bs*num</span>
+<span class="nt">seed</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">null</span><span class="w"> </span><span class="c1"># 随机种子</span>
+<span class="nt">fp16</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span><span class="w"> </span><span class="c1"># 半精度推理速度更快，显存更少</span>
+
+<span class="nt">condition</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">null</span><span class="w"> </span><span class="c1"># img2img和contorlnet</span>
+
+<span class="nt">save</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">save_cfg</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span><span class="w"> </span><span class="c1"># 是否一起储存配置文件</span>
+<span class="w">  </span><span class="nt">image_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">png</span><span class="w"> </span><span class="c1"># 储存图像格式</span>
+<span class="w">  </span><span class="nt">quality</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">95</span><span class="w"> </span><span class="c1"># 储存图像压缩质量</span>
+
+<span class="nt">infer_args</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">width</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">512</span><span class="w"> </span><span class="c1"># 图像宽度</span>
+<span class="w">  </span><span class="nt">height</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">512</span><span class="w"> </span><span class="c1"># 图像高度</span>
+<span class="w">  </span><span class="nt">guidance_scale</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">7.5</span><span class="w"> </span><span class="c1"># CFG scale大小</span>
+
+<span class="nt">new_components</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span><span class="w"> </span><span class="c1"># 替换模型的组件 Sampler，VAE 等</span>
+
+<span class="nt">merge</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">null</span><span class="w"> </span><span class="c1"># 加载模型和lora等插件</span>
+</pre></div>
+</div>
+<p>替换Sampler:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">new_components</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">scheduler</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">_target_</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">diffusers.EulerAncestralDiscreteScheduler</span><span class="w"> </span><span class="c1"># change Sampler</span>
+<span class="w">    </span><span class="nt">beta_start</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.00085</span>
+<span class="w">    </span><span class="nt">beta_end</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.012</span>
+<span class="w">    </span><span class="nt">beta_schedule</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;scaled_linear&#39;</span>
+</pre></div>
+</div>
+<p>替换VAE:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">new_components</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">vae</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">_target_</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">diffusers.AutoencoderKL.from_pretrained</span>
+<span class="w">    </span><span class="nt">pretrained_model_name_or_path</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;any3.0/vae&#39;</span><span class="w"> </span><span class="c1"># path to vae model</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>加载训练的模型<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>可以指定多个模型进行分层融合，或者添加多个lora。</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">merge</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">exp_dir</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2023-04-03-10-10-36&#39;</span>
+<span class="w">  </span>
+<span class="w">  </span><span class="nt">group1</span><span class="p">:</span><span class="w"> </span><span class="c1">#可以同时加载多个组，有不同的配置参数。</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;unet&#39;</span><span class="w"> </span><span class="c1">#加载到unet上还是text-encoder上</span>
+<span class="w">    </span><span class="nt">base_model_alpha</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.0</span><span class="w"> </span><span class="c1"># base model weight to merge with lora or part</span>
+<span class="w">    </span><span class="nt">lora</span><span class="p">:</span><span class="w"> </span><span class="c1">#一个组可以加载多个lora模型</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;exps/${....exp_dir}/ckpts/unet-600.ckpt&#39;</span>
+<span class="w">        </span><span class="nt">alpha</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.7</span><span class="w"> </span><span class="c1"># base_model*base_model_alpha + lora*alpha</span>
+<span class="w">        </span><span class="nt">layers</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;all&#39;</span><span class="w"> </span><span class="c1">#指定加载哪些层，&quot;all&quot;为全部层</span>
+<span class="w">        </span><span class="nt">mask</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">0.5</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">1</span><span class="p p-Indicator">]</span><span class="w"> </span><span class="c1">#lora的batch_mask，[0.5, 1]对应DreamArtist++的positive分支</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;exps/${....exp_dir}/ckpts/unet-neg-600.ckpt&#39;</span>
+<span class="w">        </span><span class="nt">alpha</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.55</span>
+<span class="w">        </span><span class="nt">layers</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;all&#39;</span>
+<span class="w">        </span><span class="nt">mask</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">0</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">0.5</span><span class="p p-Indicator">]</span><span class="w"> </span><span class="c1">#[0, 0.5]对应DreamArtist++的negative分支</span>
+<span class="w">    </span><span class="nt">part</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">null</span>
+<span class="w">  </span>
+<span class="w">  </span><span class="nt">group2</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;TE&#39;</span><span class="w"> </span><span class="c1">#加载到text-encoder上</span>
+<span class="w">    </span><span class="nt">base_model_alpha</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.0</span><span class="w"> </span><span class="c1"># base model weight to merge with lora or part</span>
+<span class="w">    </span><span class="nt">lora</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;exps/${....exp_dir}/ckpts/text_encoder-600.ckpt&#39;</span>
+<span class="w">        </span><span class="nt">alpha</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.7</span>
+<span class="w">        </span><span class="nt">layers</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;all&#39;</span>
+<span class="w">        </span><span class="nt">mask</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">0.5</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">1</span><span class="p p-Indicator">]</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;exps/${....exp_dir}/ckpts/text_encoder-neg-600.ckpt&#39;</span>
+<span class="w">        </span><span class="nt">alpha</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.55</span>
+<span class="w">        </span><span class="nt">layers</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;all&#39;</span>
+<span class="w">        </span><span class="nt">mask</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">0</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">0.5</span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">part</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">null</span>
+<span class="w">  </span>
+<span class="w">  </span><span class="nt">group3</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;unet&#39;</span>
+<span class="w">    </span><span class="nt">base_model_alpha</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.0</span><span class="w"> </span><span class="c1"># 替换基础模型的层</span>
+<span class="w">    </span><span class="nt">part</span><span class="p">:</span><span class="w"> </span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;exps/${....exp_dir}/ckpts/unet_ft.ckpt&#39;</span>
+<span class="w">        </span><span class="nt">alpha</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.0</span><span class="w"> </span><span class="c1"># 替换基础的模型层</span>
+<span class="w">        </span><span class="nt">layers</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;all&#39;</span>
+</pre></div>
+</div>
+<p>如果使用DreamArtist方法，需要在prompt和negative_prompt中都加入对应的触发词<code class="docutils literal notranslate"><span class="pre">{name}</span></code>和<code class="docutils literal notranslate"><span class="pre">{name}-neg</span></code>。
+如果使用DreamArtist++方法，只在prompt中加入正触发词会有更好的效果。</p>
+<div class="section" id="id4">
+<h3>加载插件<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<p>除了lora之外，还可以添加自定义插件。lora也可以当成自定义插件添加。</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">merge</span><span class="p">:</span>
+<span class="w">  </span><span class="c1"># 模型插件定义文件</span>
+<span class="w">  </span><span class="nt">plugin_cfg</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cfgs/plugins/plugin_controlnet.yaml</span>
+<span class="w">    </span>
+<span class="w">  </span><span class="nt">group3</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;unet&#39;</span>
+<span class="w">    </span><span class="nt">base_model_alpha</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.0</span><span class="w"> </span><span class="c1"># 替换基础模型的层</span>
+<span class="w">    </span><span class="nt">part</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">null</span>
+<span class="w">    </span><span class="nt">lora</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">null</span>
+<span class="w">    </span><span class="nt">plugin</span><span class="p">:</span><span class="w"> </span><span class="c1"># 加载模型插件</span>
+<span class="w">      </span><span class="nt">controlnet1</span><span class="p">:</span><span class="w"> </span><span class="c1"># 插件名称，不能重复</span>
+<span class="w">        </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;ckpts/controlnet.ckpt&#39;</span><span class="w"> </span><span class="c1"># 模型路径</span>
+<span class="w">        </span><span class="nt">layers</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;all&#39;</span><span class="w"> </span><span class="c1"># 加载哪些层</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>单词注意力加强<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<p>可以单独加强部分词的注意力:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>格式为: {加强的文本:倍率}，默认1.1倍
+例如：
+a {cat} running {in the {city}:1.2}
+</pre></div>
+</div>
+<p>其中<code class="docutils literal notranslate"><span class="pre">cat</span></code>会被加强1.1倍，<code class="docutils literal notranslate"><span class="pre">in</span> <span class="pre">the</span></code>会被加强1.2倍，<code class="docutils literal notranslate"><span class="pre">city</span></code>则会被加强1.2*1.1倍。</p>
+</div>
+</div>
+
+
+              </article>
+              
+            </div>
+            <footer>
+  
+  <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+    
+    <a href="get_started.html" class="btn btn-neutral float-right" title="开始使用HCP-Diffusion" accesskey="n"
+      rel="next">Next <img src="_static/images/chevron-right-blue.svg"
+        class="next-page"></a>
+    
+    
+    <a href="index.html" class="btn btn-neutral" title="Welcome to MMDetection’s documentation!" accesskey="p"
+      rel="prev"><img src="_static/images/chevron-right-blue.svg" class="previous-page"> Previous</a>
+    
+  </div>
+  
+
+  <hr>
+
+  <div role="contentinfo">
+    <p>
+      &copy; Copyright 2018-2021, HCP Lab.
+
+    </p>
+  </div>
+  
+  <div>
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a
+      href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the
+      Docs</a>.
+  </div>
+   
+
+</footer>
+          </div>
+        </div>
+
+        <div class="pytorch-content-right" id="pytorch-content-right">
+          <div class="pytorch-right-menu" id="pytorch-right-menu">
+            <div class="pytorch-side-scroll" id="pytorch-side-scroll-right">
+              <ul>
+<li><a class="reference internal" href="#">推理阶段使用教程</a><ul>
+<li><a class="reference internal" href="#id2">生成参数</a></li>
+<li><a class="reference internal" href="#id3">加载训练的模型</a><ul>
+<li><a class="reference internal" href="#id4">加载插件</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id5">单词注意力加强</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+          </div>
+        </div>
+    </section>
+  </div>
+
+  
+
+
+  
+
+  
+  <script type="text/javascript" id="documentation_options" data-url_root="./"
+    src="_static/documentation_options.js"></script>
+  <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+  <script src="_static/jquery.js"></script>
+  <script src="_static/underscore.js"></script>
+  <script src="_static/doctools.js"></script>
+  <script src="_static/clipboard.min.js"></script>
+  <script src="_static/copybutton.js"></script>
+  <script src="_static/translations.js"></script>
+  
+
+  
+
+  <script type="text/javascript" src="_static/js/vendor/popper.min.js"></script>
+  <script type="text/javascript" src="_static/js/vendor/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+    jQuery(function () {
+      SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+  <!-- Begin Footer -->
+
+  <div class="container-fluid docs-tutorials-resources" id="docs-tutorials-resources">
+  </div>
+
+  <!-- End Footer -->
+
+  <!-- Begin Mobile Menu -->
+
+  <div class="mobile-main-menu">
+    <div class="container-fluid">
+      <div class="container">
+        <div class="mobile-main-menu-header-container">
+          <a class="header-logo" href="" aria-label="OpenMMLab"></a>
+          <a class="main-menu-close-button" href="#" data-behavior="close-mobile-menu"></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="mobile-main-menu-links-container">
+      <div class="main-menu">
+        <ul>
+          <li>
+            <a href="https://github.com/7eu7d7/HCP-Diffusion/" target="_blank">GitHub</a>
+          </li>
+      </div>
+    </div>
+  </div>
+
+  <!-- End Mobile Menu -->
+
+  <script type="text/javascript" src="_static/js/vendor/anchor.min.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      mobileMenu.bind();
+      mobileTOC.bind();
+      pytorchAnchors.bind();
+      sideMenus.bind();
+      scrollToAnchor.bind();
+      highlightNavigation.bind();
+      mainMenuDropdown.bind();
+      filterTags.bind();
+
+      // Add class to links that have code blocks, since we cannot create links in code blocks
+      $("article.pytorch-article a span.pre").each(function (e) {
+        $(this).closest("a").addClass("has-code");
+      });
+    })
+  </script>
+</body>
+
+</html>
